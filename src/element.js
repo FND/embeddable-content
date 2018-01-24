@@ -6,7 +6,7 @@ export default class EmbeddableContent extends HTMLElement {
 		let { link } = this;
 		this.retrieve(link.href).
 			then(html => {
-				replaceNode(link, ...html2dom(html));
+				replaceNode(this.replace ? this : link, ...html2dom(html));
 			});
 	}
 
@@ -28,6 +28,10 @@ export default class EmbeddableContent extends HTMLElement {
 
 	get cors() {
 		return this.hasAttribute("cors");
+	}
+
+	get replace() {
+		return this.hasAttribute("replace");
 	}
 
 	get link() {
