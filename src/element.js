@@ -42,5 +42,5 @@ export default class EmbeddableContent extends HTMLElement {
 function html2dom(html) {
 	let tmp = document.createElement("div");
 	tmp.innerHTML = html;
-	return [...tmp.childNodes];
+	return Array.prototype.slice.call(tmp.childNodes);
 }

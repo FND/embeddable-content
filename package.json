@@ -1,13 +1,13 @@
 {
 	"name": "embeddable-content",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "client-side transclusion component",
 	"author": "FND",
 	"license": "Apache-2.0",
 	"homepage": "https://github.com/FND/embeddable-content",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/FND/embeddable-content"
+		"url": "https://github.com/FND/embeddable-content.git"
 	},
 	"bugs": {
 		"url": "https://github.com/FND/embeddable-content/issues"
