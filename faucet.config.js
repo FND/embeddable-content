@@ -1,6 +1,7 @@
 module.exports = {
 	js: [{
 		source: "./src/index.js",
-		target: "./dist/embeddable-content.js"
+		target: "./dist/embeddable-content.js",
+		esnext: true
 	}]
 };

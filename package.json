@@ -12,7 +12,7 @@
 	"bugs": {
 		"url": "https://github.com/FND/embeddable-content/issues"
 	},
-	"main": "dist/embeddable-content.js",
+	"main": "embeddable-content.js",
 	"module": "src/index.js",
 	"scripts": {
 		"start": "npm run compile -- --watch",
@@ -23,8 +23,8 @@
 		"uitil": "^1.8.0"
 	},
 	"devDependencies": {
-		"eslint-config-fnd": "^1.2.0",
-		"faucet-pipeline-js": "^1.0.0-beta.0",
-		"release-util-fnd": "^1.0.7"
+		"eslint-config-fnd": "^1.3.0",
+		"faucet-pipeline-esnext": "^1.0.0-beta.1",
+		"release-util-fnd": "^1.1.0"
 	}
 }

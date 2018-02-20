@@ -5,5 +5,9 @@
 pre_release_checks
 npm test
 
-create_package > /dev/null
+target_dir=`create_package`
+# include pre-compiled bundle
+npm run compile
+cp ./dist/embeddable-content.js "$target_dir/"
+
 publish_package
