@@ -1,6 +1,6 @@
 {
 	"name": "embeddable-content",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "client-side transclusion component",
 	"author": "FND",
 	"license": "Apache-2.0",
@@ -20,11 +20,11 @@
 		"compile": "faucet --compact"
 	},
 	"dependencies": {
-		"uitil": "^1.8.0"
+		"uitil": "^2.0.0"
 	},
 	"devDependencies": {
 		"eslint-config-fnd": "^1.3.0",
-		"faucet-pipeline-esnext": "^1.0.0-beta.1",
-		"release-util-fnd": "^1.1.0"
+		"faucet-pipeline-esnext": "^1.0.0-rc.3",
+		"release-util-fnd": "^1.1.1"
 	}
 }
