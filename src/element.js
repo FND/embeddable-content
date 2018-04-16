@@ -4,6 +4,10 @@ import { replaceNode } from "uitil/dom";
 export default class EmbeddableContent extends HTMLElement {
 	connectedCallback() {
 		let link = this.querySelector("a");
+		this.resolve(link);
+	}
+
+	resolve(link) {
 		let uri = link.href;
 		this.retrieve(uri).
 			then(html => {

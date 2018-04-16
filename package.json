@@ -1,6 +1,6 @@
 {
 	"name": "embeddable-content",
-	"version": "1.1.1",
+	"version": "1.1.2",
 	"description": "client-side transclusion component",
 	"author": "FND",
 	"license": "Apache-2.0",
