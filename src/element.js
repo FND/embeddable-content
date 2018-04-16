@@ -3,11 +3,10 @@ import { replaceNode } from "uitil/dom";
 
 export default class EmbeddableContent extends HTMLElement {
 	connectedCallback() {
-		let { link } = this;
+		let link = this.querySelector("a");
 		let uri = link.href;
 		this.retrieve(uri).
 			then(html => {
-				this.link = null;
 				this.uri = uri;
 				replaceNode(this.replace ? this : link, ...html2dom(html));
 			});
@@ -35,10 +34,6 @@ export default class EmbeddableContent extends HTMLElement {
 
 	get replace() {
 		return this.hasAttribute("replace");
-	}
-
-	get link() {
-		return this.querySelector("a");
 	}
 }
 
