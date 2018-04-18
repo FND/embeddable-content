@@ -3,17 +3,17 @@ import { replaceNode } from "uitil/dom";
 
 export default class EmbeddableContent extends HTMLElement {
 	connectedCallback() {
-		let link = this.querySelector("a");
-		this.resolve(link);
-	}
-
-	resolve(link) {
+		let { link } = this;
 		let uri = link.href;
 		this.retrieve(uri).
 			then(html => {
 				this.uri = uri;
-				replaceNode(this.replace ? this : link, ...html2dom(html));
+				this.transclude(html, link);
 			});
+	}
+
+	transclude(html, target) {
+		replaceNode(this.replace ? this : target, ...html2dom(html));
 	}
 
 	retrieve(uri) {
@@ -38,6 +38,11 @@ export default class EmbeddableContent extends HTMLElement {
 
 	get replace() {
 		return this.hasAttribute("replace");
+	}
+
+	get link() {
+		// NB: avoids erroneously returning a transcluded link's URI
+		return this.uri ? null : this.querySelector("a");
 	}
 }
 
