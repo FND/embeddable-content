@@ -1,5 +1,6 @@
 /* eslint-env browser */
 import { replaceNode } from "uitil/dom";
+import httpRequest from "uitil/dom/http";
 
 export default class EmbeddableContent extends HTMLElement {
 	connectedCallback() {
@@ -17,19 +18,9 @@ export default class EmbeddableContent extends HTMLElement {
 	}
 
 	retrieve(uri) {
-		let options = {
-			headers: {
-				Accept: "text/html; fragment=true"
-			},
-			credentials: this.cors ? "include" : "same-origin"
-		};
-		return fetch(uri, options).
-			then(res => {
-				if(!res.ok) {
-					throw new Error(`unexpected response at <${uri}>`);
-				}
-				return res.text();
-			});
+		return httpRequest("GET", uri, { Accept: "text/html; fragment=true" },
+				null, { cors: this.cors, strict: true }).
+			then(res => res.text());
 	}
 
 	get cors() {
