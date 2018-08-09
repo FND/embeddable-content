@@ -14,7 +14,8 @@ export default class EmbeddableContent extends HTMLElement {
 	}
 
 	transclude(html, target) {
-		replaceNode(this.replace ? this : target, ...html2dom(html));
+		let nodes = html2dom(html);
+		replaceNode.apply(null, [this.replace ? this : target].concat(nodes));
 	}
 
 	retrieve(uri) {
