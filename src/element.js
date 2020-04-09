@@ -20,8 +20,7 @@ export default class EmbeddableContent extends HTMLElement {
 
 	retrieve(uri) {
 		this.setAttribute("aria-busy", "true");
-		return httpRequest("GET", uri, { Accept: "text/html; fragment=true" },
-				null, { cors: this.cors, strict: true }).
+		return this.httpRequest(uri).
 			then(res => {
 				this.removeAttribute("aria-busy");
 				return res.text();
@@ -29,6 +28,11 @@ export default class EmbeddableContent extends HTMLElement {
 				this.removeAttribute("aria-busy");
 				throw err;
 			});
+	}
+
+	httpRequest(uri) {
+		return httpRequest("GET", uri, { Accept: "text/html; fragment=true" },
+				null, { cors: this.cors, strict: true });
 	}
 
 	get cors() {
