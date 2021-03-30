@@ -1,4 +1,5 @@
 /* eslint-env browser */
+import { html2dom } from "uitil/dom/html";
 import { replaceNode } from "uitil/dom";
 import httpRequest from "uitil/dom/http";
 
@@ -14,7 +15,8 @@ export default class EmbeddableContent extends HTMLElement {
 	}
 
 	transclude(html, target) {
-		let nodes = html2dom(html);
+		let doc = html2dom(html);
+		let nodes = Array.prototype.slice.call(doc.childNodes);
 		replaceNode.apply(null, [this.replace ? this : target].concat(nodes));
 	}
 
@@ -47,10 +49,4 @@ export default class EmbeddableContent extends HTMLElement {
 		// NB: avoids erroneously returning a transcluded link's URI
 		return this.uri ? null : this.querySelector("a");
 	}
-}
-
-function html2dom(html) {
-	let tmp = document.createElement("div");
-	tmp.innerHTML = html;
-	return Array.prototype.slice.call(tmp.childNodes);
 }
